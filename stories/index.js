@@ -1,17 +1,18 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
+import React          from "react";
+import { storiesOf }  from "@storybook/react";
+import { action }     from "@storybook/addon-actions";
 
 import "index.scss";
 //import "../src/components/Appointment/styles.scss"
 
-import Button from "components/Button";
-import DayListItem from "components/DayListItem";
-import DayList from "components/DayList";
-import InterviewerListItem from "components/InterviewerListItem"
-import InterviewerList from "components/InterviewerList"
-import Appointment from "../src/components/Appointment/index"
-import Header from "../src/components/Appointment/Header"
+import Button                 from "components/Button";
+import DayListItem            from "components/DayListItem";
+import DayList                from "components/DayList";
+import InterviewerListItem    from "components/InterviewerListItem"
+import InterviewerList        from "components/InterviewerList"
+import Appointment            from "../src/components/Appointment/index"
+import Header                 from "../src/components/Appointment/Header"
+import Empty                  from "../src/components/Appointment/Empty"
 
       //BUTTON//
 storiesOf("Button", module)
@@ -144,3 +145,4 @@ storiesOf("Appointment", module)
 .add("Appointment", () => <Appointment />)
 .add("Appointment with Time", () => <Appointment time="12pm" />)
 .add("Header", () => <Header time="12pm" />)
+.add("Empty", () => <Empty onAdd={action("onAdd")} />)
