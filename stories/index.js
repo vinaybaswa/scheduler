@@ -17,6 +17,8 @@ import Show                   from "../src/components/Appointment/Show"
 import Confirm                from "../src/components/Appointment/Confirm"
 import Status                 from "../src/components/Appointment/Status"
 import Error                  from "../src/components/Appointment/Error"
+import Form                  from "../src/components/Appointment/Form"
+
 
 //BUTTON//
 storiesOf("Button", module)
@@ -136,7 +138,9 @@ storiesOf("InterviewerList", module)
     <InterviewerList
       interviewers={interviewers}
       interviewer={3}
-      setInterviewer={action("setInterviewer")}
+      //value={3}//
+      //setInterviewer={action("setInterviewer")}
+      onChange={action("onChange")}
     />
   ));
 
@@ -171,3 +175,17 @@ storiesOf("Appointment", module)
       onClose={action("onClose")}
     />
   ))
+  .add("Create", () => 
+    <Form 
+      interviewers={interviewers}
+      onCancel={action("onCancel")}
+      onSave={action("onSave")}
+    />)
+  .add("Edit", () => 
+    <Form 
+      name="John Smith"
+      interviewers={interviewers}
+      interviewer={3}
+      onCancel={action("onCancel")}
+      onSave={action("onSave")}
+    />)
