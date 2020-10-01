@@ -11,20 +11,14 @@ export default function Appointment(props) {
   return (
   <article className="appointment">
     <Header time={props.time}/>
+
     {!props.interview 
     && <Empty/> }
-    
+
     {props.interview 
     && <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
         /> } 
   </article>)
-  
 }
-
-
-
-{/* <Header time="12pm" />
-<Empty/>
-<Header time="1pm" /> */}
