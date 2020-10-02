@@ -3,7 +3,7 @@ import axios from 'axios';
 import "./Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment"
-import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 // const appointments = [
 //   {
@@ -68,7 +68,7 @@ export default function Application(props) {
 
   const setDay = day => setState({ ...state, day });
   //const setDays = days => setState(prev => ({ ...prev, days }));
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const appointments = getAppointmentsForDay(state, state.day);
 
   // useEffect(() => {
   //   const daysURL = `http://localhost:8001/api/days`;
@@ -91,9 +91,16 @@ export default function Application(props) {
       });
   }, []);
 
-  const appointment = dailyAppointments.map((appointment, index) => {
+  const schedule = appointments.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
     return (
-      <Appointment key={index} {...appointment} />
+      <Appointment key={appointment.id} {...appointment} interview={interview}/>
+  //   <Appointment
+  //     key={appointment.id}
+  //     id={appointment.id}
+  //     time={appointment.time}
+  //     interview={interview}
+  //   />
     );
   })
 
@@ -120,7 +127,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {appointment}
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
