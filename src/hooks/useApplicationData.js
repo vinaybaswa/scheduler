@@ -10,6 +10,12 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
+  function spotsUpdtae(num) {
+    const dayObj = state.days.find((item) => item.name === state.day);
+    dayObj.spots += num;
+    return state.days;
+  }
+
   const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
@@ -37,6 +43,8 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
+    spotsUpdtae(-1);
+
     return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
     .then(() => setState({...state, appointments}))
   }
@@ -51,6 +59,8 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+
+    spotsUpdtae(1);
 
     return axios.delete(`http://localhost:8001/api/appointments/${id}`)
     .then(() => setState({...state, appointments}))
