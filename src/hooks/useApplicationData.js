@@ -10,7 +10,7 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
-  function spotsUpdtae(num) {
+  function spotsUpdate(num) {
     const dayObj = state.days.find((item) => item.name === state.day);
     dayObj.spots += num;
     return state.days;
@@ -43,7 +43,7 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    spotsUpdtae(-1);
+    spotsUpdate(-1);
 
     return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
     .then(() => setState({...state, appointments}))
@@ -60,7 +60,7 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    spotsUpdtae(1);
+    spotsUpdate(1);
 
     return axios.delete(`http://localhost:8001/api/appointments/${id}`)
     .then(() => setState({...state, appointments}))

@@ -78,5 +78,15 @@ export default {
         data: fixtures.interviewers
       });
     }
+  }),
+
+  put: jest.fn(url => {
+    if (url === `http://localhost:8001/api/appointments/0`, {student: "Lydia Miller-Jones", interviewer: fixtures.interviewers["1"]}) {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+        data: fixtures.appointments
+      });
+    }
   })
 }
