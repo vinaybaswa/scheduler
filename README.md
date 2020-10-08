@@ -2,12 +2,12 @@
 
 Scheduler is a React application built using:
 
-React
-Storybook
-Webpack Dev Server
-Axios
-Babel
-Jest
+React, 
+Storybook, 
+Webpack Dev Server, 
+Axios, 
+Babel, 
+Jest and 
 Cypress
 
 Scheduler allows users to book, edit and cancel interviews.
