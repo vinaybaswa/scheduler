@@ -1,5 +1,18 @@
 # Interview Scheduler
 
+Scheduler is a React application built using:
+
+React
+Storybook
+Webpack Dev Server
+Axios
+Babel
+Jest
+Cypress
+
+Scheduler allows users to book, edit and cancel interviews.
+Combined with a concise API with a WebSocket server to build a realtime experience.
+
 ## Setup
 
 Install dependencies with `npm install`.
